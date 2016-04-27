@@ -2,6 +2,8 @@ ISV应用和企业应用php demo
 
 目录结构：
 isv目录：isv应用php demo
+
+
 corp目录：企业应用php demo
 
 运行前先看开发文档：http://ddtalk.github.io/dingTalkDoc/?spm=a3140.7785475.0.0.Q5c5r7
@@ -27,7 +29,7 @@ ISV应用注册开发流程
 
 6.部署成功之后，点击『创建套件』弹窗中的『验证有效性』。
 
-具体是如何验证回调URL有效性的，请查看(isv/receive.php)
+  具体是如何验证回调URL有效性的，请查看(isv/receive.php)
 
 7.创建套件成功之后，将得到的SuiteKey和SuiteSecret填写到工程的config.php中。
 
@@ -35,14 +37,18 @@ ISV应用注册开发流程
 
 9.测试企业激活完成后，进入套件『管理』，在页面底部选择要授权的测试企业进行授权
 
-10.打开钉钉，进入对应企业，即可看到微应用，点击进入
+10.修改微应用主页地址和PC主页地址
+
+  点击应用最右侧的`编辑`，编辑微应用信息，例如，工程部署在ip地址为123.56.71.118的主机上，端口为8080，那么微应用首页地址即为：`http://123.56.71.118:8080/index.php?corpid=$CORPID$`，PC版首页地址为：`http://123.56.71.118:8080/indexpc.php?corpid=$CORPID$`，点击保存。
+
+11.打开钉钉，进入对应企业，即可看到微应用，点击进入
 
 ###创建企业应用
-1.进入https://oa.dingtalk.com/#/microApp/microAppList点击『新建应用』
+1.进入`https://oa.dingtalk.com/#/microApp/microAppList`,点击『新建应用』
 
 2.配置PHP服务器环境（php+apache/nginx），安装mcrypt扩展（注意，一定要安装mcrypt扩展）
 
-3.微应用主页地址填写。地址为`根目录/index.php`，(例如，工程部署在ip地址为123.56.71.118的主机上，端口为8080，那么微应用首页地址即为：`http://123.56.71.118:8080/index.php`，PC版首页地址为：'http://123.56.71.118:8080/indexpc.php'，假如你有域名的话，也可以把IP地址换成域名)
+3.微应用主页地址填写。地址为`根目录/index.php`，(例如，工程部署在ip地址为123.56.71.118的主机上，端口为8080，那么微应用首页地址即为：`http://123.56.71.118:8080/index.php`，PC版首页地址为：`http://123.56.71.118:8080/indexpc.php`，假如你有域名的话，也可以把IP地址换成域名)
   修改config.php中的CORPID，SECRET，AGENTID，其中CORPID，SECRET在微应用设置页面https://oa.dingtalk.com/#/microApp/microAppSet获取，AGENTID在创建微应用的时候可以获取
 
 4.微应用创建成功后，需要把微应用首页地址改为'根目录/index.php'
